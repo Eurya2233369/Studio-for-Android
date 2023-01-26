@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_Primary">#FF596D5E</color>
+    <color name="color_Primary_Variant">#FF5A7661</color>
+    <color name="color_OnPrimary">#FFFFFFFF</color>
+    <color name="color_Secondary">#FF838A4C</color>
+    <color name="color_Secondary_Variant">#FF808A4C</color>
+    <color name="color_OnSecondary">#FF000000</color>
+    <color name="color_Secondary_Container">#FFFFFFFF</color>
+    <color name="color_OnSecondary_Container">#FF828A4C</color>    
+    <color name="color_Black">#FF000000</color>
+    <color name="color_White">#FFFFFFFF</color>
+</resources>
