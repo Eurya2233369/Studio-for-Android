@@ -14,8 +14,6 @@ import com.eurya.studio.adapter.ProjectAdapter;
 import com.eurya.studio.databinding.ActivityMainBinding;
 import com.eurya.studio.utils.StudioUtil;
 
-import com.itsaky.androidide.logsender.LogSender;
-
 import java.io.File;
 
 
@@ -31,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-		LogSender.startLogging(this);
-        super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);
 		binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setSupportActionBar(binding.toolbar);
         setContentView(binding.getRoot());
