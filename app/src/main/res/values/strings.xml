@@ -3,4 +3,10 @@
     <string name="app_exit">exit</string>
     <string name="app_permission_required">Permission required</string>
     <string name="app_permission_cannot_run">The software cannot run without permission</string>
+    
+    <string-array name="create_project_item">
+        <item>Maven</item>
+        <item>Android</item>
+        <item>Gradle</item>
+    </string-array>
 </resources>

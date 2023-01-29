@@ -33,10 +33,22 @@ android {
 }
 
 dependencies {
+    implementation files (
+        'libs/javac-9.jar',
+        'libs/google-java-format-1.7.jar',
+        'libs/antlr-4.9.2-complete.jar',
+        'libs/apksigner.jar'
+   )
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
     implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
     implementation 'com.guolindev.permissionx:permissionx:1.6.4'
-
+    implementation 'com.android.tools:sdklib:25.3.0'
+    implementation 'com.github.marschall:zipfilesystem-standalone:1.0.1'
+    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'com.android.tools:r8:2.2.64'
+    implementation 'commons-io:commons-io:2.11.0'
 }

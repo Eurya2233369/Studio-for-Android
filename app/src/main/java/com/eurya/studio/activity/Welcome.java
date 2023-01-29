@@ -2,6 +2,7 @@ package com.eurya.studio.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,33 +13,27 @@ import com.eurya.studio.MainActivity;
 import com.eurya.studio.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.permissionx.guolindev.PermissionX;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @autuor Eurya QiuZhu
- * @time 2023.1.16
+ * @date 2023.1.16
  * @emali 2644635373@qq.com
  */
+ 
 public class Welcome extends AppCompatActivity {
 
   @Override
-  protected void onCreate(Bundle bundle) {
-    super.onCreate(bundle);
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_welcome);
     PermissionX.init(this)
-        .permissions(
-            Manifest.permission.MANAGE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE)
+        .permissions(getPermission())
         .request(
             (allGranted, grantedList, deniedList) -> {
               if (allGranted) {
-                new Handler(Looper.getMainLooper())
-                    .postDelayed(
-                        () -> {
-                          startActivity(new Intent(this, MainActivity.class));
-                          finish();
-                        },
-                        1000);
+                startMain();
               } else {
                 new MaterialAlertDialogBuilder(this)
                     .setTitle(R.string.app_permission_required)
@@ -52,5 +47,24 @@ public class Welcome extends AppCompatActivity {
                     .show();
               }
             });
+  }
+
+  private List<String> getPermission() {
+    List<String> permission = new ArrayList<>();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+      permission.add(Manifest.permission.MANAGE_EXTERNAL_STORAGE);
+    }
+    permission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    return permission;
+  }
+
+  private void startMain() {
+    new Handler(Looper.getMainLooper())
+        .postDelayed(
+            () -> {
+              startActivity(new Intent(this, MainActivity.class));
+              finish();
+            },
+            1000);
   }
 }
